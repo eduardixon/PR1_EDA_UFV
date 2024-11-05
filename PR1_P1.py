@@ -10,7 +10,14 @@ Cremos la clase nodo, le damos como argumento el valor que va a tener ese nodo. 
 Creamos clase Lista, con los argumentos, primero y lugar (Posicion de los nodos), y la longitud de la lista.
 Creamos funcion esVacia, que retornara dos outputs, si esta vaicio el primero y ultimo lugar.
 Creamos funcion len, retorna la longitud.
-
+Cremoas la funcion insertarIzquierda e insertar derecha. En ambas comprobamos si la lista esta vacia, en este caso definimos como head y tail el nuevo nodo. En caso de que haya mas nodos, cambiamos los punteros de estos para insertarlos en la lista.
+Para insertar en una posicion, primero, si la lista es vacía, simplemente insertamos (ignorando la posición). Si la posición es 0 insertamos a la izquierda, lo mismo con valores de posición negativos. En caso de que haya mas nodos, primero creamos uno nuevo, aux. Usamos un bucle while para iterar y buscar la posicion deseada, cada ciclo sumando 1 al indice y iterando al siguiente nodo. Una vez lo encontramos arreglamos los punteros para insertar el nodo, y añadimos 1 a la longitud de la lista.
+Para quitar izquiera y derecha, cambiamos los punteros de los nodos y disminuimos la longitud.
+Para la funcion quitarPosicion, seguimos la misma logica que en las dos lineas anteriores.
+Para consultar izquierda y derecha, usamos una condicion y un return.
+Para consultar una posicion, iteramos de la misma manera que hemos explicado anteriormente y retoranmos el valor de el aux(Nodo), que buscamos.
+Para imprimir la lista, usamos la funcion __str__, recorremos todos los nodos, añadiendolos a una variable y la imprimimos en pantalla.
+Al final hacemos unas pruebas basicas de funcionalidad
 '''
 class Nodo:
     def __init__(self, valor):
@@ -50,7 +57,7 @@ class Lista:
         self.longitud += 1
 
     def insertarPosicion(self, valor, posicion):
-        if self.esVacia() or posicion <= 0: # Si la lista es vacía, simplemente insertamos (ignorando la posición). Si la posición es 0 insertamos a la izquierda, lo mismo con valores de posición negativos
+        if self.esVacia() or posicion <= 0: #
             self.insertarIzquierda(valor)
         elif posicion >= self.len():
             self.insertarDerecha(valor)
@@ -106,17 +113,17 @@ class Lista:
                 self.ultimo = aux
             self.longitud -= 1
 
-    def consultarIzquierda(self): # el primero de la lista
+    def consultarIzquierda(self): 
         if self.esVacia():
             return None
         return self.primero.valor
 
-    def consultarDerecha(self): # el ultimo de la lista
+    def consultarDerecha(self):
         if self.esVacia():
             return None
         return self.ultimo.valor
 
-    def consultarPosicion(self, posicion): # el de la posicion de la lista
+    def consultarPosicion(self, posicion): 
         if posicion < 0 or posicion >= self.len():
             raise IndexError("La posición está fuera de los límites de la lista")
 
@@ -125,8 +132,6 @@ class Lista:
             aux = aux.sig
         return aux.valor
 
-    # Método sobreescrito para generar un string que represente a la clase
-    # ListaEnlazada (lo usa la llamada a print de una ListaEnlazada)
     def __str__(self):
         string = "Head -> "
         aux = self.primero # variable aux para ir recorriendo los nodos
