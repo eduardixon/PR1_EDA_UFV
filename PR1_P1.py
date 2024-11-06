@@ -18,6 +18,7 @@ Para consultar izquierda y derecha, usamos una condicion y un return.
 Para consultar una posicion, iteramos de la misma manera que hemos explicado anteriormente y retoranmos el valor de el aux(Nodo), que buscamos.
 Para imprimir la lista, usamos la funcion __str__, recorremos todos los nodos, añadiendolos a una variable y la imprimimos en pantalla.
 Al final hacemos unas pruebas basicas de funcionalidad
+
 '''
 class Nodo:
     def __init__(self, valor):
@@ -65,9 +66,9 @@ class Lista:
             # crear un nuevo nodo
             nuevo = Nodo(valor)
             # buscar el nodo anterior al deseado
-            i = 0
+            i = 1
             aux = self.primero
-            while i < posicion:
+            while i < posicion -1:
                 aux = aux.sig
                 i += 1
             # arreglar punteros
@@ -103,7 +104,7 @@ class Lista:
         if posicion == 0:
             self.quitarIzquierda()
         else:
-            i = 0
+            i = 1
             aux = self.primero
             while i < posicion - 1:
                 aux = aux.sig
@@ -141,33 +142,35 @@ class Lista:
         string += "None"
         return string
 
+if __name__ == "__main__": #Solo se ejecuta cuando esta en el ejercicio PR1_P1
 # Pruebas básicas de funcionalidad
-l1 = Lista()
-l2 = Lista()
-print(f"¿Es vacía l1? {l1.esVacia()}")
+    l1 = Lista()
+    l2 = Lista()
+    print(f"¿Es vacía l1? {l1.esVacia()}")
 
-l2.insertarIzquierda(4)
-l2.insertarIzquierda(44)
-l2.insertarIzquierda(-4)
-l2.insertarIzquierda(344)
-print(f"¿Es vacía l2? {l2.esVacia()}")
+    l2.insertarIzquierda(4)
+    l2.insertarIzquierda(44)
+    l2.insertarIzquierda(-4)
+    l2.insertarIzquierda(344)
+    print(f"¿Es vacía l2? {l2.esVacia()}")
 
-print("Lista l1: ", l1)
-print("Lista l2: ", l2)
+    print("Lista l1: ", l1)
+    print("Lista l2: ", l2)
 
-# Pruebas para la función insertarPosicion
-l2.insertarPosicion(2, 0)  # Inserta al principio: 2 -> 344 -> -4 -> 44 -> 4 -> None
-print("Después de insertar 2 al principio:", l2)
-l2.insertarPosicion(6, 5)  # Inserta al final: 2 -> 344 -> -4 -> 44 -> 4 -> 6 -> None
-print("Después de insertar 6 al final:", l2)
-l2.insertarPosicion(10, 3)  # Inserta en la posición 3: 2 -> 344 -> -4 -> 10 -> 44 -> 4 -> 6 -> None
-print("Después de insertar 10 en la posición 3:", l2)
+    # Pruebas para la función insertarPosicion
+    l2.insertarPosicion(2, 0)  # Inserta al principio: 2 -> 344 -> -4 -> 44 -> 4 -> None
+    print("Después de insertar 2 al principio:", l2)
+    l2.insertarPosicion(6, 5)  # Inserta al final: 2 -> 344 -> -4 -> 44 -> 4 -> 6 -> None
+    print("Después de insertar 6 al final:", l2)
+    l2.insertarPosicion(10, 3)  # Inserta en la posición 3: 2 -> 344 -> -4 -> 10 -> 44 -> 4 -> 6 -> None
+    print("Después de insertar 10 en la posición 3:", l2)
 
-# Pruebas para la función quitarPosicion
-l2.quitarPosicion(0)  # Quita el primer nodo: 344 -> -4 -> 10 -> 44 -> 4 -> 6 -> None
-print("Después de quitar la posición 0:", l2)
-l2.quitarPosicion(5)  # Quita el último nodo: 344 -> -4 -> 10 -> 44 -> 4 -> None
-print("Después de quitar la posición 5:", l2)
-l2.quitarPosicion(2)  # Quita el nodo en la posición 2: 344 -> -4 -> 44 -> 4 -> None
-print("Después de quitar la posición 2:", l2)
+    # Pruebas para la función quitarPosicion
+    l2.quitarPosicion(0)  # Quita el primer nodo: 344 -> -4 -> 10 -> 44 -> 4 -> 6 -> None
+    print("Después de quitar la posición 0:", l2)
+    l2.quitarPosicion(5)  # Quita el último nodo: 344 -> -4 -> 10 -> 44 -> 4 -> None
+    print("Después de quitar la posición 5:", l2)
+    l2.quitarPosicion(2)  # Quita el nodo en la posición 2: 344 -> -4 -> 44 -> 4 -> None
+    print("Después de quitar la posición 2:", l2)
 
+        
