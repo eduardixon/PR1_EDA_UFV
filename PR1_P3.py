@@ -18,7 +18,7 @@ def invertir_cadena(cadena):
         pila.append(caracter)
 
     cadena_invertida = ''  # Inicializa cadena invertida
-    while pila: #Desapila cada carácter para así construir la cadena invertida
+    while pila != []: #Desapila cada carácter para así construir la cadena invertida
         cadena_invertida += pila.pop()
 
     return cadena_invertida # Devuelve la cadena invertida 

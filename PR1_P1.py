@@ -3,7 +3,7 @@ Estructura de Datos y Algoritmos | Ing. Matemática | Curso 24/25
 PRÁCTICA 1 – TAD (Clases) Conjunto, Pila, Cola y Lista
 AUTORES:
 - Eduaro Martinez Abos
-- Sara Gancedo Rodríguez García
+- Sara Gancedo-Rodríguez García
 EJERCICIO: 1
 EXPLICACIONES:
 Cremos la clase nodo, le damos como argumento el valor que va a tener ese nodo. Y como argumento el siguiente nodo.
@@ -170,3 +170,4 @@ l2.quitarPosicion(5)  # Quita el último nodo: 344 -> -4 -> 10 -> 44 -> 4 -> Non
 print("Después de quitar la posición 5:", l2)
 l2.quitarPosicion(2)  # Quita el nodo en la posición 2: 344 -> -4 -> 44 -> 4 -> None
 print("Después de quitar la posición 2:", l2)
+
